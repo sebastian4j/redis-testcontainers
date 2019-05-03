@@ -13,9 +13,9 @@ import redis.clients.jedis.Jedis;
  * @author Sebastian Avila A,
  *
  */
-public class RutasRecursosTest {
+public class RedisTest {
 
-    private static final Logger LOGGER = Logger.getLogger(RutasRecursosTest.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RedisTest.class.getName());
 
     @Rule
     public GenericContainer redis = RedisContainerSetUp.puertoDinamico();
