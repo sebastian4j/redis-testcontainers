@@ -21,10 +21,11 @@ public final class RedisContainerSetUp {
      */
     public static GenericContainer puertoEspecifico() {
         final int containerExposedPort = 6379;
-        final Consumer<CreateContainerCmd> config = e -> 
-                e.withPortBindings(new PortBinding(Ports.Binding.bindPort(10000),
+        final Consumer<CreateContainerCmd> config = 
+                e -> e.withPortBindings(new PortBinding(Ports.Binding.bindPort(Integer.
+                parseInt(System.getenv("redis_puerto"))),
                 new ExposedPort(containerExposedPort)));
-        
+
         return new GenericContainer("redis:5.0.3-alpine")
                 .withExposedPorts(containerExposedPort)
                 .withCreateContainerCmdModifier(config);
